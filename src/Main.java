@@ -6,9 +6,11 @@ public class Main {
     {
         Scanner in = new Scanner(System.in);
 
-        int gasInTank = 0;
+        double gasInTank = 0;
         double fuelEfficiency = 0;
         double pricePerGallon = 0;
+        double priceOf100Miles = 0;
+        int possibleMileage = 0;
         String trash = "";
 
         System.out.print("Please enter the number of gallons of gas in the tank: ");
@@ -26,7 +28,7 @@ public class Main {
 
         }
 
-        System.out.println("Please enter the fuel efficiency in miles per gallon: ");
+        System.out.print("Please enter the fuel efficiency in miles per gallon: ");
         if (in.hasNextDouble())
         {
             fuelEfficiency = in.nextDouble();
@@ -41,7 +43,7 @@ public class Main {
 
         }
 
-        System.out.println("Please enter the price of gas per gallon: ");
+        System.out.print("Please enter the price of gas per gallon: ");
         if (in.hasNextDouble())
         {
             pricePerGallon = in.nextDouble();
@@ -55,6 +57,11 @@ public class Main {
             System.exit(0);
 
         }
+        priceOf100Miles = (100 / fuelEfficiency) * pricePerGallon;
+        System.out.println("It will cost you $" + priceOf100Miles + " to drive 100 miles.");
+
+        possibleMileage = (int) (gasInTank * fuelEfficiency);
+        System.out.println("You can drive " + possibleMileage + " miles with the gas you currently have in the tank.");
 
     }
 }
